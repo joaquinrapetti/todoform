@@ -39,7 +39,7 @@ const TaskList = ({ taskList, onHandleRemove, onHandleComplete }) => {
               {item.firstname} {item.lastname} -- {item.task} ---- {item.date}
             </Alert>
 
-            <ButtonGroup className="me-2" aria-label="Second group">
+            <ButtonGroup className="me-2 w-md-100" aria-label="Second group">
               <Button
                 variant="success"
                 onClick={() => onHandleComplete(item.task)}

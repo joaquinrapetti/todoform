@@ -23,3 +23,10 @@ p {
 .alert {
   visibility: none;
 }
+
+@media screen and (max-width: 875px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+  }
+}

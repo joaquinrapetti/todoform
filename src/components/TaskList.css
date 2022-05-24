@@ -28,3 +28,23 @@ Button {
 .completed {
   text-decoration: line-through;
 }
+
+@media screen and (max-width: 1200px) {
+  .tasks {
+    flex-direction: column;
+  }
+
+  .tasklist-content {
+    margin-top: 24px;
+  }
+
+  .table-info {
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+  Button {
+    width: 100%;
+  }
+}
