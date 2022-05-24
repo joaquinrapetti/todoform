@@ -22,6 +22,13 @@ const TaskForm = ({ onHandleSubmit, onHandleChange, newTask, alert }) => {
             onHandleChange={onHandleChange}
             value={newTask.lastname}
           />
+          <TaskInput
+            type="date"
+            name="date"
+            placeholder=""
+            onHandleChange={onHandleChange}
+            value={newTask.date}
+          />
           {/* <Form.Control type="date" placeholder="Date" className="my-2" /> */}
           <TaskInput
             type="text"

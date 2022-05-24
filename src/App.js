@@ -8,6 +8,7 @@ const App = () => {
   const task = {
     firstname: "",
     lastname: "",
+    date: "",
     task: "",
     taskType: "",
   };
@@ -16,6 +17,7 @@ const App = () => {
     {
       firstname: "Joaquin",
       lastname: "Perez",
+      date: "2022-05-21",
       task: "Compras",
       taskType: "secondary",
       completed: false,
@@ -23,6 +25,7 @@ const App = () => {
     {
       firstname: "Fulanito",
       lastname: "Lopez",
+      date: "2022-04-13",
       task: "Lavado",
       taskType: "danger",
       completed: false,

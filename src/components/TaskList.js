@@ -36,7 +36,7 @@ const TaskList = ({ taskList, onHandleRemove, onHandleComplete }) => {
               className={item.completed ? "table-info completed" : "table-info"}
               variant={item.completed ? "success" : item.taskType}
             >
-              {item.firstname} {item.lastname} -- {item.task}
+              {item.firstname} {item.lastname} -- {item.task} ---- {item.date}
             </Alert>
 
             <ButtonGroup className="me-2" aria-label="Second group">
