@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Badge, Table } from "react-bootstrap";
 import "./App.css";
 import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
 
 const App = () => {
   const task = {
@@ -60,38 +61,7 @@ const App = () => {
         />
       </div>
       <div className="right">
-        <Container className="p-5 mb-4">
-          {taskList.length > 0 ? (
-            <h3>
-              Your ToDo Tasks! <Badge bg="primary">{taskList.length}</Badge>
-            </h3>
-          ) : (
-            <div>
-              <h3>You do not have any task</h3>
-              <p>Add a task to track work!</p>
-            </div>
-          )}
-          <div className="tasklist-content">
-            <Table striped bordered hover size="sm" className="my-5">
-              <thead>
-                <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Task</th>
-                </tr>
-              </thead>
-              <tbody>
-                {taskList.map((item) => (
-                  <tr key={item.task}>
-                    <td>{item.firstname}</td>
-                    <td>{item.lastname}</td>
-                    <td>{item.task}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-        </Container>
+        <TaskList taskList={taskList} />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ const TaskInput = ({ type, placeholder, name, onHandleChange, value }) => {
     <Form.Control
       type={type}
       placeholder={placeholder}
-      className="my-2"
+      className="my-3"
       name={name}
       onChange={onHandleChange}
       value={value}

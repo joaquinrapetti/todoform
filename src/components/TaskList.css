@@ -1,0 +1,22 @@
+.tasklist-content {
+  margin-top: 44px;
+  width: 100%;
+}
+
+.tasks {
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.table-info {
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+  height: 40px;
+  align-items: center;
+}
+
+Button {
+  height: 40px;
+}
