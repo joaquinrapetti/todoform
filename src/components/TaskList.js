@@ -1,6 +1,6 @@
 import React from "react";
 import "./TaskList.css";
-import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import { FaTrashAlt, FaCheck } from "react-icons/fa";
 
 import {
   Container,
@@ -11,12 +11,12 @@ import {
   Alert,
 } from "react-bootstrap";
 
-const TaskList = ({ taskList }) => {
+const TaskList = ({ taskList, onHandleRemove, onHandleComplete }) => {
   return (
     <Container className="p-5">
       {taskList.length > 0 ? (
         <h3>
-          Your ToDo Tasks! <Badge bg="primary">{taskList.length}</Badge>
+          Your ToDo Listt! <Badge bg="primary">{taskList.length}</Badge>
         </h3>
       ) : (
         <div>
@@ -24,6 +24,7 @@ const TaskList = ({ taskList }) => {
           <p>Add a task to track work!</p>
         </div>
       )}
+
       <div className="tasklist-content">
         {taskList.map((item) => (
           <ButtonToolbar
@@ -31,14 +32,24 @@ const TaskList = ({ taskList }) => {
             aria-label="Toolbar with button groups"
             className="tasks"
           >
-            <Alert className="table-info">
+            <Alert
+              className={item.completed ? "table-info completed" : "table-info"}
+              variant={item.completed ? "success" : item.taskType}
+            >
               {item.firstname} {item.lastname} -- {item.task}
             </Alert>
+
             <ButtonGroup className="me-2" aria-label="Second group">
-              <Button>
-                <FaEdit />
+              <Button
+                variant="success"
+                onClick={() => onHandleComplete(item.task)}
+              >
+                <FaCheck />
               </Button>
-              <Button variant="danger">
+              <Button
+                onClick={() => onHandleRemove(item.task)}
+                variant="danger"
+              >
                 <FaTrashAlt />
               </Button>
             </ButtonGroup>

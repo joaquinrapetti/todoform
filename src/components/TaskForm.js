@@ -30,6 +30,13 @@ const TaskForm = ({ onHandleSubmit, onHandleChange, newTask, alert }) => {
             onHandleChange={onHandleChange}
             value={newTask.task}
           />
+          <TaskInput
+            type="select"
+            name="taskType"
+            placeholder="Select type..."
+            onHandleChange={onHandleChange}
+            value={newTask.taskType}
+          />
         </Form.Group>
         <Button variant="primary" type="submit" className="w-100">
           Add New Task

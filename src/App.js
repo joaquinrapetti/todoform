@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Container, Badge, Table } from "react-bootstrap";
 import "./App.css";
+
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
@@ -9,6 +9,7 @@ const App = () => {
     firstname: "",
     lastname: "",
     task: "",
+    taskType: "",
   };
 
   const [taskList, setTaskList] = useState([
@@ -16,11 +17,15 @@ const App = () => {
       firstname: "Joaquin",
       lastname: "Perez",
       task: "Compras",
+      taskType: "secondary",
+      completed: false,
     },
     {
       firstname: "Fulanito",
       lastname: "Lopez",
       task: "Lavado",
+      taskType: "danger",
+      completed: false,
     },
   ]);
   const [newTask, setNewTask] = useState(task);
@@ -39,15 +44,40 @@ const App = () => {
     if (
       newTask.firstname !== "" &&
       newTask.lastname !== "" &&
-      newTask.task !== ""
+      newTask.task !== "" &&
+      newTask.taskType !== ""
     ) {
       setTaskList([...taskList, newTask]);
+      setNewTask(task);
     } else {
       setAlert((prevAlert) => !prevAlert);
       setTimeout(() => {
         setAlert((prevAlert) => !prevAlert);
       }, 4000);
     }
+  };
+
+  const handleRemove = (taskId) => {
+    console.log("Remove", taskId);
+    const updatedTaskList = (prevTaskList) =>
+      prevTaskList.filter((item) => item.task !== taskId);
+    setTaskList(updatedTaskList);
+  };
+
+  const handleComplete = (taskId) => {
+    console.log("Completed", taskId);
+    const updatedTask = (prevTaskList) =>
+      prevTaskList.map((item) => {
+        if (item.task === taskId) {
+          return {
+            ...item,
+            completed: !item.completed,
+          };
+        }
+        return item;
+      });
+    setTaskList(updatedTask);
+    console.log(taskList);
   };
 
   return (
@@ -61,7 +91,11 @@ const App = () => {
         />
       </div>
       <div className="right">
-        <TaskList taskList={taskList} />
+        <TaskList
+          taskList={taskList}
+          onHandleRemove={handleRemove}
+          onHandleComplete={handleComplete}
+        />
       </div>
     </div>
   );
