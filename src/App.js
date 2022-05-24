@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Badge } from "react-bootstrap";
+import { Container, Badge, Table } from "react-bootstrap";
 import "./App.css";
 import TaskForm from "./components/TaskForm";
 
@@ -63,7 +63,7 @@ const App = () => {
         <Container className="p-5 mb-4">
           {taskList.length > 0 ? (
             <h3>
-              Your ToDo Tasks! <Badge bg="secondary">{taskList.length}</Badge>
+              Your ToDo Tasks! <Badge bg="primary">{taskList.length}</Badge>
             </h3>
           ) : (
             <div>
@@ -72,14 +72,24 @@ const App = () => {
             </div>
           )}
           <div className="tasklist-content">
-            {taskList.map((item) => (
-              <div key={item.task}>
-                <h4>
-                  {item.firstname} {item.lastname}
-                </h4>
-                <h6>{item.task}</h6>
-              </div>
-            ))}
+            <Table striped bordered hover size="sm" className="my-5">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Task</th>
+                </tr>
+              </thead>
+              <tbody>
+                {taskList.map((item) => (
+                  <tr key={item.task}>
+                    <td>{item.firstname}</td>
+                    <td>{item.lastname}</td>
+                    <td>{item.task}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
           </div>
         </Container>
       </div>
